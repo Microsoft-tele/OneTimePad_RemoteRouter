@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>查看投票人信息</title>
+</head>
+<body>
+{{template "top.html"}}
+<h1>投票人信息</h1>
+<form action="http://47.100.188.70/verifySignature" method="post">
+    <table border="1" id="Ticket">
+        <tr>
+            <td>ID</td>
+            <td>RSA公钥</td>
+            <td>签名</td>
+        </tr>
+        {{range .}}
+        <tr>
+            <td>{{.ID}}</td>
+            <td>{{.RSA}}</td>
+            <td>{{.Signature}}</td>
+            <td><input type="submit" name="{{.ID}}" value="验证签名"></td>
+        </tr>
+        {{end}}
+    </table>
+</form>
+</body>
+</html>

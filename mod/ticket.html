@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>选票界面</title>
+
+    <link rel="stylesheet" href="/css/ticket.css">
+
+</head>
+<body>
+{{template "top.html"}}
+
+<form name="input" action="http://localhost:12345/recvTicket" method="post"> <!--提交给本地服务器做加密处理-->
+    <div class="home">
+        <div class="page">
+            <div class="tittle">
+                <span id="tittle1">选票</span>
+                <span id="tittle2">[请选择_项]</span>
+            </div>
+            <div class="tips">
+                <label >为了投票的真实性，请输入您的真实姓名:</label>
+                <input type="text" name="VoetrName" required placeholder="请输入真实姓名"><br>
+            </div>
+            <hr style="border: 1px dotted #000000"/>
+            <table id="Ticket">
+                <tr>
+                    <td class="tittle3">候选人</td>
+                    <td class="tittle3">候选人简介</td>
+                    <td class="tittle3">投票</td>
+                </tr>
+                {{range .}}
+                <tr>
+                    <td class="table-info">{{.Name}}</td>
+                    <td class="table-info">{{.Introduction}}</td>
+                    <td>
+                        <input type="hidden" name="{{.Name}}" value="0">
+                        <label>
+                            <input type="checkbox" name="{{.Name}}" value="1">
+                        </label>
+                    </td>
+                </tr>
+                {{end}}
+            </table>
+            <button class="btn" type="submit" value="Submit">投票</button>
+        </div>
+    </div>
+
+</form>
+</form>
+</body>
+</html>

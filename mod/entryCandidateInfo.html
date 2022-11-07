@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>选票信息录入</title>
+    <link rel="stylesheet" href="/css/entryCandidateInfo.css">
+    <script>
+        function addtr(){
+            var tableObj = document.getElementById("Ticket")
+            var trObj = document.createElement("tr")
+            var tdObj = document.createElement("td")
+
+            tdObj.innerHTML = `<input id="table-input_1" type="text" name="Name">`
+            trObj.appendChild(tdObj)
+
+            var tdObj = document.createElement("td")
+            tdObj.innerHTML = `<input id="table-input_2" type="text" name="Intro">`
+            trObj.appendChild(tdObj)
+
+            var tdObj = document.createElement("td")
+            tdObj.innerHTML = `<input id="table-input_3" type="button" name="Delete" value="删除" onclick="deltr(this)">`
+            trObj.appendChild(tdObj)
+
+            tableObj.appendChild(trObj)
+        }
+    </script>
+    <script>
+        function deltr(trObj){
+            var tableObj = document.getElementById("Ticket")
+            var tableObj1 = trObj.parentNode.parentNode;
+            tableObj.removeChild(tableObj1)
+        }
+    </script>
+
+</head>
+<body>
+{{template "top.html"}}
+<div class="home">
+    <div class="page">
+        <div class="tittle">
+            <p>选票信息录入</p>
+        </div>
+        <hr style="border: 1px dotted #000000"/>
+        <form class="form-new" action="http://47.100.188.70/recvCandidateInfo" method="post"> <!-- @TODO 修改公网地址-->
+            <p id="tittle1">候选人信息录入</p>
+            <table border="1" id="Ticket">
+                <tr>
+                    <td id="tittle2_1">姓名</td>
+                    <td id="tittle2_2">候选人简介</td>
+                    <td id="tittle2_3">操作</td>
+                </tr>
+            </table>
+
+            <input class="new-bnt" id="btnNew" type="button" value="+" onclick="addtr()">
+            <hr style="border: 1px dotted #000000"/>
+            <p id="tittle3">设置</p>
+
+            <div class="form-span">
+                <div id="topic">
+                    <span>投票标题:</span><input id="topic-input" type="text" placeholder="请输入标题"></br>
+
+                </div>
+                <div id="date">
+                    <span>投票截止日期:</span><input id="date-input" type="date" placeholder="请选择"></br>
+
+                </div>
+                <div  id="ticker-num">
+                    <span>投票人最多可投票数:</span><input type="number" placeholder="请选择">
+                </div>
+            </div>
+            <input id="btn" type="submit" value="提交" name="MaxNum">
+
+            <p id="retTip">{{.}}</p>
+        </form>
+    </div>
+</div>
+</body>
+</html>
