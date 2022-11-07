@@ -1,0 +1,17 @@
+* {
+    margin: 0;
+    padding: 0;
+    text-decoration: none;
+    list-style: none;
+}
+
+#downloadKey {
+    color: #003cff;
+    font-size: 4vw;
+    text-decoration: none;
+}
+
+#downloadKey:hover {
+    color: #00b7ff;
+    cursor: pointer;
+}

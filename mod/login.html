@@ -29,9 +29,9 @@
 </head>
 
 <body>
-    <form action="http://47.100.188.70/login" method="POST"> <!-- @TODO 记得修改公网地址 -->
+    <form action="https://404060p9q5.zicp.fun/login" method="POST"> <!-- @TODO 记得修改公网地址 -->
         <div id="login-box">
-            <h1>欢迎使用Micros0ft投票系统</h1>
+            <h1>欢迎使用Micros0ft密码管理器</h1>
             <div class="form">
                 <div class="item">
                     <i class="fa fa-envelope-open-o" aria-hidden="true"></i>
@@ -42,23 +42,12 @@
                     <i class="fa fa-key" aria-hidden="true"></i>
                     <input type="password" placeholder="密码" name="password" required>
                 </div>
-
-                <div class="radio-inline">
-                    <label class="idRadio">
-                        <input value="1" type="radio" name="idRadioOption" id="voter" required><label for="voter">投票人</label>
-                    </label>
-                    <label class="idRadio">
-                        <input value="2" type="radio" name="idRadioOption" id="candidate" required><label for="candidate">候选人</label>
-                    </label>
-                    <label class="idRadio">
-                        <input value="3" type="radio" name="idRadioOption" id="notary" required><label for="notary">公证人</label>
-                    </label>
-                </div>
             </div>
+            <br>
             <button type="submit" onclick="myFunction(`{{.}}`)">登录</button><br>
 
             <div class="tips">
-                <a href="http://47.100.188.70/registerIndex">点击注册</a><br>
+                <a href="https://404060p9q5.zicp.fun/registerIndex">点击注册</a><br>
                 <!--记得修改公网地址 @TODO 记得修改公网地址 -->
             </div>
         </div>

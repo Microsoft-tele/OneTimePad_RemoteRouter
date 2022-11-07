@@ -12,19 +12,7 @@ import (
 	"time"
 )
 
-var NameList []string
-var IntroductionList []string
-
-type ShowResultMap struct {
-	Name      string
-	Res       string
-	ResCipher []string
-}
-
-var ShowResultList []ShowResultMap
-
 func main() {
-	http.Handle("/paillierKeys/pub/", http.StripPrefix("/paillierKeys/pub/", http.FileServer(http.Dir("../paillierKeys/pub"))))
 	http.Handle("/css/img/", http.StripPrefix("/css/img/", http.FileServer(http.Dir("../css/img/"))))
 	http.Handle("/css/", http.StripPrefix("/css/", http.FileServer(http.Dir("../css"))))
 	http.Handle("/mod/", http.StripPrefix("/mod/", http.FileServer(http.Dir("../mod"))))
@@ -41,7 +29,7 @@ func main() {
 
 	http.HandleFunc("/sendVerifyCode", SendVerifyCode)
 
-	err := http.ListenAndServe(":80", nil)
+	err := http.ListenAndServe(":8080", nil)
 	if err != nil {
 		fmt.Println("监听错误:", err)
 		return
@@ -111,21 +99,18 @@ func Login(w http.ResponseWriter, r *http.Request) {
 	form := r.PostForm
 	var email string
 	var password string
-	var idRadioOption string
 	for k, v := range form {
 		fmt.Printf("[%v : %v]\n", k, v)
 		if k == "email" {
 			email = v[0]
 		} else if k == "password" {
 			password = v[0]
-		} else if k == "idRadioOption" {
-			idRadioOption = v[0]
 		}
 	}
 
 	user := User.User{}
 	user.InitMysql()
-	prepare, err := user.Db.Prepare("select password,is_verify,identity from user where email=?")
+	prepare, err := user.Db.Prepare("select password,is_verify from user where email=?")
 	if err != nil {
 		fmt.Println("解析sql语句错误:", err)
 		return
@@ -133,18 +118,17 @@ func Login(w http.ResponseWriter, r *http.Request) {
 	row := prepare.QueryRow(email)
 	var databasePassword string
 	var databaseIsVeryfy string
-	var databaseidRadioOption string
-	err = row.Scan(&databasePassword, &databaseIsVeryfy, &databaseidRadioOption)
+	err = row.Scan(&databasePassword, &databaseIsVeryfy)
 	if err != nil {
 		fmt.Println("读取数据库失败:", err)
 		return
 	}
-	fmt.Printf("数据库中的数据[%T : %v][%T : %v][%T : %v]\n", databasePassword, databasePassword, databaseIsVeryfy, databaseIsVeryfy, databaseidRadioOption, databaseidRadioOption)
+	fmt.Printf("数据库中的数据[%T : %v][%T : %v][%T : %v]\n", databasePassword, databasePassword, databaseIsVeryfy, databaseIsVeryfy)
 	file1, err := template.ParseFiles("../mod/login.html")
 	file2, err := template.ParseFiles("../mod/index.html")
 
 	if databaseIsVeryfy == "1" {
-		if databasePassword == password && databaseidRadioOption == idRadioOption {
+		if databasePassword == password {
 			fmt.Println("身份验证成功:")
 			file2.Execute(w, "身份验证成功")
 		} else {
@@ -164,7 +148,6 @@ func Register(w http.ResponseWriter, r *http.Request) {
 	var email string
 	var password string
 	var verifyCode string
-	var idRadioOption string
 
 	for k, v := range form {
 		fmt.Printf("[%v : %v]\n", k, v)
@@ -174,8 +157,6 @@ func Register(w http.ResponseWriter, r *http.Request) {
 			email = v[0]
 		} else if k == "verifyCode" {
 			verifyCode = v[0]
-		} else if k == "idRadioOption" {
-			idRadioOption = v[0]
 		} else if k == "password" {
 			password = v[0]
 		}
@@ -199,13 +180,13 @@ func Register(w http.ResponseWriter, r *http.Request) {
 
 	if databaseVerifyCode == verifyCode {
 		fmt.Println("验证成功：准备存入数据库")
-		stmt, err := user.Db.Prepare("update user set username=?,password=?,is_verify=?,identity=? where email=?")
+		stmt, err := user.Db.Prepare("update user set username=?,password=?,is_verify=? where email=?")
 		if err != nil {
 			fmt.Println("解析sql语句失败:", err)
 			return
 		}
 		fmt.Println("Password 到底去哪了:", password)
-		_, err = stmt.Exec(nickname, password, strconv.Itoa(1), idRadioOption, email)
+		_, err = stmt.Exec(nickname, password, strconv.Itoa(1), email)
 		if err != nil {
 			fmt.Println("修改数据库失败:", err)
 			return

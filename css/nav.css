@@ -1,0 +1,54 @@
+* {
+    margin: 0;
+    padding: 0;
+    text-decoration: none;
+    list-style: none;
+}
+
+.nav {
+    height: 3vw;
+    background: #333;
+    box-shadow: 0 1px 2px #666;
+    z-index: 999;
+}
+
+
+.btli {
+    float: left;
+    width: 10vw;
+    line-height: 3vw;
+    text-align: center;
+    font-size: 1vw;
+}
+
+.navlist a {
+    color: #fff;
+    display: block;
+}
+
+
+.navlist a:hover {
+    background: #666;
+}
+
+#main {
+    width: 15vw;
+}
+
+.droplist {
+    background: #333;
+    display: none;
+}
+
+.btli:hover .droplist{
+    display: block;
+}
+
+.droplist li {
+    border-top: 1px solid #666;
+}
+
+.navlist #ret {
+    float: right;
+    margin: 0 2vw;
+}

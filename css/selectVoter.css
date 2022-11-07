@@ -1,0 +1,77 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+.home {
+    height: 150%;
+    margin: 0 auto;
+    margin-top: 4%;
+    margin-left: 10%;
+}
+
+.page {
+    padding: 1.5% 1% 1.5% 4%;
+    background: #DEAA2F;
+    position: absolute;
+    text-align: center;
+    width: 80%;
+    color: black;
+    margin: 0 auto;
+    z-index: -1;
+}
+
+.page #tittle {
+    text-align: left;
+    margin: 1% 0 2% 0;
+    font-weight: bolder;
+    font-family: "微软雅黑";
+}
+
+.page #Ticket {
+    margin: 2vw 8vw;
+    width: 80%;
+    font-size: 1.5vw;
+    font-family: "微软雅黑";
+    border-right: 1px solid #804040;
+    border-bottom: 1px solid #804040;
+    border-collapse: collapse;
+
+}
+
+.page #Ticket .table-info {
+    border-left: 1px solid #804040;
+    border-top: 1px solid #804040;
+    height: 2.5vw;
+    word-break: break-all;
+    word-wrap:break-word;
+}
+
+.page #Ticket .tittle2 {
+    font-size: 2.0vw;
+    height: 2.5vw;
+    width: 1vw;
+    font-family: "微软雅黑";
+    border-left: 1px solid #804040;
+    border-top: 1px solid #804040;
+}
+
+.page #Ticket #tittle2_1 {
+    width: 3vw;
+}
+
+.page #Ticket #tittle2_2 {
+    width: 22vw;
+}
+
+.page #Ticket #tittle2_3 {
+    width: 8vw;
+}
+
+.page #Ticket #tittle2_4 {
+    width: 4vw;
+}
+
+.page #Ticket #btn:hover {
+    cursor: pointer;
+}

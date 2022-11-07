@@ -1,0 +1,263 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    background-size: 100% auto;
+    position: relative;
+    /* z-index: -1; */
+}
+
+.page {
+    position: absolute;
+    margin-top: 2%;
+    left: 3%;
+    width: 80%;
+    height: auto;
+    background: #ff1c1c;
+    z-index: -1;
+}
+
+.page .img-tab {
+    position: absolute;
+}
+
+#pic_1 {
+    position: relative;
+    width: 20vw;
+    height: 25vw;
+    border-radius: 3vw;
+    padding: 1.5vw;
+    filter: grayscale(0%);
+    z-index: -1;
+}
+
+#pic_2 {
+    position: relative;
+    width: 20vw;
+    height: 25vw;
+    border-radius: 3vw;
+    padding: 1.5vw;
+    filter: grayscale(80%);
+    z-index: -1;
+}
+
+#pic_3 {
+    position: relative;
+    width: 20vw;
+    height: 25vw;
+    border-radius: 3vw;
+    padding: 1.5vw;
+    filter: grayscale(80%);
+    z-index: -1;
+}
+
+#pic_4 {
+    position: relative;
+    width: 20vw;
+    height: 25vw;
+    border-radius: 3vw;
+    padding: 1.5vw;
+    filter: grayscale(80%);
+    z-index: -1;
+}
+
+#deleteKey {
+    position: absolute;
+    top: 50%;
+    left: 8%;
+    width: 10%;
+    height: auto;
+    font-size: 1.5vw;
+    border-radius: 0.5vw;
+    border: 0.1vw solid #ffffff;
+}
+
+#deleteKey:hover {
+    cursor: pointer;
+    color: #0066ff;
+}
+
+#newProject {
+    position: absolute;
+    top: 65%;
+    left: 8%;
+    width: 10%;
+    height: auto;
+    font-size: 1.5vw;
+    border-radius: 0.5vw;
+    border: 0.1vw solid #ffffff;
+}
+
+#newProject:hover {
+    cursor: pointer;
+    color: #0066ff;
+}
+
+#nextStep_1 {
+    position: absolute;
+    top: 88%;
+    left: 15%;
+    width: 10%;
+    height: auto;
+    font-size: 1.0vw;
+    color: #ffffff;
+    border: 0;
+    background: rgba(0,0,0,0);
+}
+
+#nextStep_1:hover {
+    cursor: pointer;
+    color: #9cffe9;
+}
+
+#enterInformation {
+    position: absolute;
+    top: 50%;
+    left: 33%;
+    width: 10%;
+    height: auto;
+    font-size: 1.5vw;
+    border-radius: 0.5vw;
+    border: 0.1vw solid #ffffff;
+}
+
+#enterInformation:hover {
+    cursor: pointer;
+    color: #0066ff;
+}
+
+#nextStep_2 {
+    position: absolute;
+    top: 88%;
+    left: 40%;
+    width: 10%;
+    height: auto;
+    font-size: 1.0vw;
+    color: #ffffff;
+    border: 0;
+    background: rgba(0,0,0,0);
+}
+
+#nextStep_2:hover {
+    cursor: pointer;
+    color: #9cffe9;
+}
+
+#countNum {
+    position: absolute;
+    top: 50%;
+    left: 58%;
+    width: 10%;
+    height: auto;
+    font-size: 1.5vw;
+    border-radius: 0.5vw;
+    border: 0.1vw solid #ffffff;
+}
+
+#countNum:hover {
+    cursor: pointer;
+    color: #0066ff;
+}
+
+#nextStep_3 {
+    position: absolute;
+    top: 88%;
+    left: 65%;
+    width: 10%;
+    height: auto;
+    font-size: 1.0vw;
+    color: #ffffff;
+    border: 0;
+    background: rgba(0,0,0,0);
+}
+
+#nextStep_3:hover {
+    cursor: pointer;
+    color: #9cffe9;
+}
+
+#queryRes {
+    position: absolute;
+    top: 50%;
+    left: 83%;
+    width: 10%;
+    height: auto;
+    font-size: 1.5vw;
+    border-radius: 0.5vw;
+    border: 0.1vw solid #ffffff;
+}
+
+#queryRes:hover {
+    cursor: pointer;
+    color: #0066ff;
+}
+
+#verifySign {
+    position: absolute;
+    top: 65%;
+    left: 83%;
+    width: 10%;
+    height: auto;
+    font-size: 1.5vw;
+    border-radius: 0.5vw;
+    border: 0.1vw solid #ffffff;
+}
+
+#verifySign:hover {
+    cursor: pointer;
+    color: #0066ff;
+}
+
+/* #nextStep_4 {
+    position: absolute;
+    top: 88%;
+    left: 90%;
+    width: 10%;
+    height: auto;
+    font-size: 1.0vw;
+    color: #ffffff;
+    border: 0;
+    background: rgba(0,0,0,0);
+}
+
+#nextStep_4:hover {
+    cursor: pointer;
+    color: #9cffe9;
+} */
+
+#retLabel1 {
+    position: absolute;
+    text-decoration: none;
+    color: #000;
+    background: #ffc;
+    margin-top: 37%;
+    left: 2%;
+    width: 40vw;
+    height: 3vw;
+    padding: 1vw 2vw;
+    font-size: 1vw;
+    font-family: "微软雅黑";
+    -moz-box-shadow: 5px 5px 7px rgba(33,33,33,1);
+    -webkit-box-shadow: 5px 5px 7px rgba(33,33,33,.7);
+    box-shadow: 5px 5px 7px rgba(33,33,33,.7);
+}
+
+#labelTape1 {
+    position: absolute;
+    text-decoration: none;
+    background: #dedede;
+    opacity: 0.4;
+    margin-top: 37%;
+    left: 0;
+    width: 6vw;
+    height: 2vw;
+    -webkit-transform:rotate(-45deg);
+    -o-transform:rotate(-45deg);
+    -moz-transform:rotate(-45deg);
+}
+
+#labelMod {
+    display:none;
+}

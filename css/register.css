@@ -1,0 +1,133 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    background-image:url("/css/img/login_bk_img.png") ;
+    background-repeat: no-repeat;
+    background-size:100% 100%;
+    background-attachment:fixed;
+    position: relative;
+}
+
+
+#register-box {
+    width: 28%;
+    height: auto;
+    position: absolute;
+    left: 65% ;
+    margin-top: 1%;
+    text-align: left;
+    background: #ececec;
+    border-radius: 1vw;
+    opacity: 0.9;
+    padding: calc(1%);
+}
+
+#register-box span {
+    color: black;
+    font-style: oblique;
+    font-size: 2.5vw;
+    font-weight: bolder ;
+}
+
+#register-box .tips{
+    padding: 2% 2% 2% 0;
+    font-size: 1.1vw;
+}
+
+#register-box .tips a {
+    text-decoration: none;
+    color: #5f90ff;
+}
+
+#register-box .tips a:hover {
+    text-decoration: none;
+    color: #3674ff;
+}
+
+#register-box .form .radio-inline {
+    padding: 10% 0 6% 0;
+}
+
+#register-box .form .radio-inline .form-label {
+    font-size: 1.4vw;
+}
+
+#register-box .form .radio-inline .idRadio {
+    font-size: 1.3vw;
+}
+
+#register-box .form .item {
+    padding: 6% 0;
+    font-size: 1.4vw;
+}
+
+#register-box .form .item input {
+    height: 100%;
+    width: 74%;
+    color: #000000;
+    border-radius: 5px;
+    border-width: 2px;
+    border: #727272;
+    margin: 0 0 0 5%;
+    font-size: 1.3vw;
+}
+
+#register-box .form #verificationcode {
+    width: 52%;
+    margin: 0 0 0 1%;
+}
+
+#register-box .form .item button {
+    height: 4%;
+    width: 20%;
+    color: #3d3d3d;
+    border-radius: 5px;
+    border-width: 1px;
+    border: #727272;
+    background-color: #ffffff;
+    font-size: 1.0vw;
+}
+
+#register-box .form .item button:hover {
+    cursor: pointer;
+    color: #5f90ff;
+    border: #5f90ff;
+}
+
+#register-box #btn {
+    height: 2.5vw;
+    width: 60%;
+    border-radius: 1vw;
+    margin: 5% 20% 10% 20%;
+    border: 0 solid #ffffff;
+    background-color: #80a3ff;
+
+}
+
+#register-box #btn:hover {
+    cursor: pointer;
+}
+
+#code {
+    position: absolute;
+    margin-top: 31.1vw;
+    margin-left: 86vw;
+    height: 1vw;
+    width: 6vw;
+    font-size: 1.5vw;
+}
+
+#code button {
+    height: 1.5vw;
+    width: 5vw;
+    border-radius: 0.2vw;
+    border: 0;
+}
+
+#code button:hover {
+    cursor: pointer;
+    background-color: #c4c4c4;
+}

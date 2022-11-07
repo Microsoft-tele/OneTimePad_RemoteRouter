@@ -1,0 +1,177 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+.home {
+    margin: 0 auto;
+    margin-top: 3%;
+    margin-left: 6%;
+    /* z-index: -1; */
+}
+
+.page {
+    padding: 1.5% 1% 1.5% 4%;
+    background: #DEAA2F;
+    position: absolute;
+    width: 80%;
+    color: black;
+    margin: 0 auto;
+    z-index: -1;
+}
+
+.page .tittle {
+    text-align: left;
+    margin: 1% 0 2% 0;
+    font-weight: bolder;
+    font-size: 2.0vw;
+    font-family: "微软雅黑";
+}
+
+.page #tittle1 {
+    font-size: 1.5vw;
+    margin: 1% 0;
+    text-align: left;
+    font-weight: bold;
+    font-family: "微软雅黑";
+}
+
+.page .form-new {
+    position: relative;
+}
+
+.page .form-new hr {
+    margin-top: 3.5vw;
+}
+
+.page #Ticket {
+    margin: 1.5% 10%;
+    width: 40% ;
+    font-size: 1.0vw;
+    font-family: "微软雅黑";
+    border: 2px solid #000000;
+}
+
+.page .new-bnt {
+    position: absolute;
+    left: 20%;
+    font-size: 1vw;
+    text-align: center;
+    width: 3vw;
+    height: 1.5vw;
+    border-radius: 0;
+    color: #000000;
+    background-color: #676666;
+    margin: 0 6% 4% 8%;
+}
+
+.page .new-bnt:hover {
+    cursor: pointer;
+    background-color: #ffffff;
+}
+
+.page #Ticket #tittle2_1 {
+    font-size: 1.3vw;
+    font-family: "微软雅黑";
+    width: 1vw;
+}
+
+.page #Ticket #tittle2_2 {
+    font-size: 1.3vw;
+    width: 3vw;
+}
+
+.page #Ticket #tittle2_3 {
+    font-size: 1.3vw;
+    width: 1vw;
+}
+
+.page #tittle3 {
+    font-size: 1.5vw;
+    font-family: "微软雅黑";
+    margin: 1% 0;
+    text-align: left;
+    font-weight: bold;
+}
+
+.page .form-span {
+    text-align: left;
+    margin: 0 4%;
+    font-size: 1.3vw;
+    font-family: "微软雅黑";
+}
+
+.page .form-span #topic {
+    padding: 1% 0;
+}
+
+.page .form-span #topic input {
+    height: 2vw;
+    margin: 0 2%;
+    width: 30%;
+}
+
+.page .form-span #date {
+    padding: 1% 0;
+}
+
+.page .form-span #date input {
+    height: 2vw;
+    margin: 0 2%;
+    width: 26.5%;
+}
+
+.page .form-span #ticker-num {
+    padding: 1% 0;
+}
+
+.page .form-span #ticker-num input {
+    margin: 0 2%;
+    width: 21.2%;
+}
+
+.page .form-span input {
+    height: 2vw;
+    border: 1px;
+    border-color: #DEAA2F;
+    border-radius: 3px;
+}
+
+.page #btn {
+    margin: 4% 0 2% 45%;
+    width: 15%;
+    height: auto;
+    font-size: 1.5vw;
+    font-family: "微软雅黑";
+    border-radius: 20px;
+    border: 1px;
+}
+
+.page #btn:hover {
+    cursor: pointer;
+}
+
+head script input {
+    height: 10vw;
+}
+
+.page #Ticket #table-input_1 {
+    height: 1.5vw;
+    width: 99%;
+}
+
+.page #Ticket #table-input_2 {
+    height: 1.5vw;
+    width: 99%;
+}
+
+.page #Ticket #table-input_3 {
+    height: 1.5vw;
+    width: 30%;
+}
+
+.page #retTip {
+    position: relative;
+    color: #ff0000;
+    font-size: 2vw;
+}

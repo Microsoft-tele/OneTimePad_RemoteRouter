@@ -7,26 +7,26 @@
 
 </head>
 <body>
-    <form action="http://47.100.188.70/register" method="post">
+    <form action="https://404060p9q5.zicp.fun/register" method="post">
         <div id="register-box">
             <span>欢迎注册</span>
             <div class="tips">
-                <label class="form-label" id="tips">已有账号？<a href="http://47.100.188.70/loginIndex">点击登录</a></label><br>
+                <label class="form-label" id="tips">已有账号？<a href="https://404060p9q5.zicp.fun/loginIndex">点击登录</a></label><br>
                 <!-- @TODO 记得修改公网地址-->
             </div>
             <div class="form">
-                <div class="radio-inline">
-                    <label class="form-label">请选择您的身份</label>
-                    <label class="idRadio">
-                        <input value="1" type="radio" name="idRadioOption" id="voter" required><label for="voter">投票人</label>
-                    </label>
-                    <label class="idRadio">
-                        <input value="2" type="radio" name="idRadioOption" id="candidate" required><label for="candidate">候选人</label>
-                    </label>
-                    <label class="idRadio">
-                        <input value="3" type="radio" name="idRadioOption" id="notary" required><label for="notary">公证人</label>
-                    </label>
-                </div>
+<!--                <div class="radio-inline">-->
+<!--                    <label class="form-label">请选择您的身份</label>-->
+<!--                    <label class="idRadio">-->
+<!--                        <input value="1" type="radio" name="idRadioOption" id="voter" required><label for="voter">投票人</label>-->
+<!--                    </label>-->
+<!--                    <label class="idRadio">-->
+<!--                        <input value="2" type="radio" name="idRadioOption" id="candidate" required><label for="candidate">候选人</label>-->
+<!--                    </label>-->
+<!--                    <label class="idRadio">-->
+<!--                        <input value="3" type="radio" name="idRadioOption" id="notary" required><label for="notary">公证人</label>-->
+<!--                    </label>-->
+<!--                </div>-->
                 <div class="item">
                     <label class="form-label" for="name">昵称</label>
                     <input name="nickname" id="name" class="form-input" type="text" placeholder="请输入昵称"required/><br>
@@ -42,9 +42,6 @@
                 <div class="item">
                     <label class="form-label" for="verificationcode">验证码</label>
                     <input name="verifyCode" id="verificationcode" class="form-input" type="text" placeholder="请输入验证码" />
-                    <a onclick="getVerifyCode()">
-                        <button>获取验证码</button>
-                    </a>
                 </div>
                 <input id="btn" type="submit" value="注册">
             </div>
@@ -53,10 +50,13 @@
             <p>{{.}}</p> <!--  @TODO 修改回显位置-->
         </div>
     </form>
+    <a onclick="getVerifyCode()">
+        <button>获取验证码</button>
+    </a>
     <script>
         function getVerifyCode(){
             const mail = document.getElementById("email").value;
-            const url = "http://47.100.188.70/sendVerifyCode?mail=" + mail// @TODO 修改公网地址
+            const url = "https://404060p9q5.zicp.fun/sendVerifyCode?mail=" + mail// @TODO 修改公网地址
             alert(url)
             const Http = new XMLHttpRequest()
             Http.open("GET", url)
