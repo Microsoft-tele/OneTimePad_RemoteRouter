@@ -22,9 +22,9 @@ type User struct {
 }
 
 func (user *User) InitMysql() {
-	user.Db, err = sql.Open("mysql", "root:660967@tcp(192.168.52.130:3306)/users")
+	user.Db, err = sql.Open("mysql", "root:660967@tcp(192.168.88.129:3306)/users")
 	if err != nil {
-		fmt.Println("打开失败:", err)
+		fmt.Println("初始化数据库失败:", err)
 	}
 }
 

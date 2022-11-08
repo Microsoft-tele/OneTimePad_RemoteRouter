@@ -6,6 +6,7 @@ import (
 	"math/rand"
 	"net/http"
 	"one_time_pad_service/MailUtils"
+	"one_time_pad_service/Otp"
 	"one_time_pad_service/User"
 	"strconv"
 	"strings"
@@ -28,6 +29,8 @@ func main() {
 	http.HandleFunc("/", LoginIndex)
 
 	http.HandleFunc("/sendVerifyCode", SendVerifyCode)
+
+	http.HandleFunc("/add", Add)
 
 	err := http.ListenAndServe(":8080", nil)
 	if err != nil {
@@ -95,7 +98,11 @@ func LoginIndex(w http.ResponseWriter, r *http.Request) {
 }
 
 func Login(w http.ResponseWriter, r *http.Request) {
-	r.ParseForm()
+	err := r.ParseForm()
+	if err != nil {
+		fmt.Println("解析Form表单失败:", err)
+		return
+	}
 	form := r.PostForm
 	var email string
 	var password string
@@ -123,14 +130,18 @@ func Login(w http.ResponseWriter, r *http.Request) {
 		fmt.Println("读取数据库失败:", err)
 		return
 	}
-	fmt.Printf("数据库中的数据[%T : %v][%T : %v][%T : %v]\n", databasePassword, databasePassword, databaseIsVeryfy, databaseIsVeryfy)
+	fmt.Printf("数据库中的数据[%T : %v][%T : %v]\n", databasePassword, databasePassword, databaseIsVeryfy, databaseIsVeryfy)
 	file1, err := template.ParseFiles("../mod/login.html")
 	file2, err := template.ParseFiles("../mod/index.html")
 
 	if databaseIsVeryfy == "1" {
 		if databasePassword == password {
 			fmt.Println("身份验证成功:")
-			file2.Execute(w, "身份验证成功")
+			err := file2.Execute(w, email)
+			if err != nil {
+				fmt.Println("登录失败:", err)
+				return
+			}
 		} else {
 			fmt.Println("信息不匹配:")
 			file1.Execute(w, "信息不匹配")
@@ -197,4 +208,69 @@ func Register(w http.ResponseWriter, r *http.Request) {
 		files.Execute(w, "验证码错误,请再次输入或重新获取验证码")
 	}
 
+}
+
+func Add(w http.ResponseWriter, r *http.Request) {
+	err := r.ParseForm()
+	if err != nil {
+		fmt.Println("解析Form表单失败:", err)
+		return
+	}
+	form := r.PostForm
+	var url string
+	var intro string
+	var uname string
+	var pwd string
+	var email string
+	for i, v := range form {
+		//fmt.Printf("[%v : %v]\n", i, v)
+		if i == "url" {
+			url = v[0]
+		} else if i == "intro" {
+			intro = v[0]
+		} else if i == "uname" {
+			uname = v[0]
+		} else if i == "pwd" {
+			pwd = v[0]
+		} else if i == "email" {
+			email = v[0]
+		}
+	}
+	fmt.Println("url:", url)
+	fmt.Println("intro:", intro)
+	fmt.Println("uname:", uname)
+	fmt.Println("pwd:", pwd)
+	fmt.Println("email:", email)
+	otp := Otp.Otp{}
+	otp.InitMysql()
+	otp.AddOtp(url, intro, uname, pwd, email)
+
+	var tmpOtpObjs []Otp.Otp
+	prepare, err := otp.Db.Prepare("select * from PwdTable where email=?")
+	if err != nil {
+		fmt.Println("预编译sql失败:", err)
+		return
+	}
+	rows, err := prepare.Query(email)
+	defer rows.Close()
+	if err != nil {
+		fmt.Println("执行sql失败", err)
+		return
+	}
+	for rows.Next() {
+		var tmp Otp.Otp
+		err = rows.Scan(&tmp.Id, &tmp.Url, &tmp.Intro, &tmp.Uname, &tmp.Pwd, &tmp.Email)
+		tmpOtpObjs = append(tmpOtpObjs, tmp)
+	}
+
+	files, err := template.ParseFiles("../mod/otp.html")
+	if err != nil {
+		fmt.Println("解析模板失败:", err)
+		return
+	}
+	err = files.Execute(w, tmpOtpObjs)
+	if err != nil {
+		fmt.Println("执行模板失败:", err)
+		return
+	}
 }
